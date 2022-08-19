@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+# no need for this
+**/server
 
 # local env files
 .env.local

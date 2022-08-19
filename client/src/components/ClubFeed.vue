@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     getMessage() {
-      const club = '930375';
+      const club = '';
       const path = `https://www.strava.com/api/v3/clubs/${club}/activities`;
       const config = {
         headers: {

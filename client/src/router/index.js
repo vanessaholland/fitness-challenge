@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import PingPong from '../components/Ping.vue';
-import LeaderBoard from '../components/Leaderboard.vue';
+import ClubFeed from '../components/ClubFeed.vue';
 import ActivityFeed from '../components/ActivityFeed.vue';
+import LeaderBoard from '../components/LeaderBoard.vue';
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/activities',
     name: 'ActivityFeed',
     component: ActivityFeed,
+  },
+  {
+    path: '/clubfeed',
+    name: 'ClubFeed',
+    component: ClubFeed,
   },
   {
     path: '/leaderboard',
@@ -27,20 +33,3 @@ const router = createRouter({
 });
 
 export default router;
-// import Vue from 'vue';
-// import Router from 'vue-router';
-// import PingPong from '../components/Ping.vue';
-
-// Vue.use(Router);
-
-// export default new Router({
-//   mode: 'history',
-//   base: process.env.BASE_URL,
-//   routes: [
-//     {
-//       path: '/ping',
-//       name: 'Ping',
-//       component: PingPong,
-//     },
-//   ],
-// });
