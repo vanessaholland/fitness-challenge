@@ -37,11 +37,11 @@ export default {
   },
   methods: {
     getMessage() {
-      const club = '930375';
+      const club = process.env.CLUB;
       const path = `https://www.strava.com/api/v3/clubs/${club}/activities?per_page=50`;
       const config = {
         headers: {
-          Authorization: 'Bearer ',
+          Authorization: `Bearer ${process.env.TOKEN}`,
         },
       };
       axios.get(path, config)
