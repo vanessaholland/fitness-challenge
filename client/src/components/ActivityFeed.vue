@@ -41,7 +41,7 @@ export default {
       const path = `https://www.strava.com/api/v3/athlete/activities?before=${today}&after=${ninetyDaysAgo}&page=1&per_page=30`;
       const config = {
         headers: {
-          Authorization: 'Bearer ',
+          Authorization: `Bearer ${process.env.TOKEN}`,
         },
       };
       axios.get(path, config)

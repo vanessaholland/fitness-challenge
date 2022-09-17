@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import PingPong from '../components/Ping.vue';
+import HomeView from '../views/HomeView.vue';
 import ClubFeed from '../components/ClubFeed.vue';
 import ActivityFeed from '../components/ActivityFeed.vue';
-import LeaderBoard from '../components/LeaderBoard.vue';
+import Leaderboard from '../components/Leaderboard.vue';
 
 const routes = [
   {
     path: '/ping',
     name: 'Ping',
     component: PingPong,
+  },
+  {
+    path: '/',
+    name: 'Home',
+    component: HomeView,
   },
   {
     path: '/activities',
@@ -22,8 +28,8 @@ const routes = [
   },
   {
     path: '/leaderboard',
-    name: 'LeaderBoard',
-    component: LeaderBoard,
+    name: 'Leaderboard',
+    component: Leaderboard,
   },
 ];
 
