@@ -1,0 +1,22 @@
+name: Cypress CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: client/
+          start: npm run serve
+          build: npx cypress info
+          wait-on: 'http://localhost:8080'
