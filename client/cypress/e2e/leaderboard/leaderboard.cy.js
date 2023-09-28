@@ -1,6 +1,6 @@
 describe('Viewing the leaderboard', () => {
     it('Navigates to the leaderboard and displays athletes by rank', () => {
-        cy.visit('http://localhost:8080/')
+        cy.visit('/')
 
         cy.get('[data-cy=navbar')
             .should('be.visible')

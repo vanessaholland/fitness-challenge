@@ -16,5 +16,5 @@ jobs:
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: client/
+          working-directory: client/e2e/leaderboard
           build: npx cypress info
