@@ -7,14 +7,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-  basic-ubuntu-20:
-    runs-on: ubuntu-20.04
+  cypress-run:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Cypress tests
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          working-directory: client/
+          working-directory: client/e2e/leaderboard
           build: npx cypress info
