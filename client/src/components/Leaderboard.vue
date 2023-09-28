@@ -1,26 +1,28 @@
+<!-- if i was going to productionize this, would use a library for the table and sorting,
+for now, more dependencies more probs -->
 <template>
   <div class="container">
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Athlete</th>
-            <th scope="col">Total Activities</th>
-            <th scope="col">Miles</th>
-            <th scope="col">Time</th>
-            <th scope="col">Elevation Gain</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="(leader,i) in leaders" :key="i">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ leader[1].name }}</td>
-            <td>{{ leader[1].totalActivies}}</td>
-            <td>{{ this.convertDistance(leader[1].totalDistance) }}</td>
-            <td>{{ this.convertTime(leader[1].totalTime) }}</td>
-            <td>{{ leader[1].totalElevation}}</td>
-            </tr>
-        </tbody>
+    <table class="table table-dark table-striped" data-cy="leader-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Athlete</th>
+          <th scope="col">Total Activities</th>
+          <th scope="col">Miles</th>
+          <th scope="col">Time</th>
+          <th scope="col">Elevation Gain</th>
+        </tr>
+      </thead>
+      <tbody data-cy="leader-table-body">
+        <tr v-for="(leader, i) in rankedLeaders" :key="i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ leader }}</td>
+          <td>{{ leaders[leader].totalActivies }}</td>
+          <td>{{ this.convertDistance(leaders[leader].totalDistance) }}</td>
+          <td>{{ this.convertTime(leaders[leader].totalTime) }}</td>
+          <td>{{ leaders[leader].totalElevation }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -33,15 +35,16 @@ export default {
   data() {
     return {
       leaders: {},
+      rankedLeaders: {},
     };
   },
   methods: {
     getMessage() {
-      const club = process.env.CLUB;
+      const club = process.env.VUE_APP_CLUB;
       const path = `https://www.strava.com/api/v3/clubs/${club}/activities?per_page=50`;
       const config = {
         headers: {
-          Authorization: `Bearer ${process.env.TOKEN}`,
+          Authorization: `Bearer ${process.env.VUE_APP_TOKEN}`,
         },
       };
       axios.get(path, config)
@@ -64,7 +67,8 @@ export default {
               };
             }
           });
-          this.leaders = this.setRanks(this.leaders);
+          this.rankedLeaders = this.setRanks(this.leaders);
+          console.log(this.rankedLeaders);
         })
         .catch((error) => {
           // eslint-disable-next-line
@@ -72,19 +76,24 @@ export default {
         });
     },
     setRanks(leaders) {
-      const rankedLeaders = new Map([...leaders.entries()].sort((a, b) => {
-        if (a.totalDistance > b.totalDistance) {
+      const keys = Object.keys(leaders);
+      const rankedLeaders = keys.sort((a, b) => {
+        if (leaders[a].totalDistance < leaders[b].totalDistance) {
           return 1;
         }
-        if (a.totalDistance < b.totalDistance) {
+        if (leaders[a].totalDistance > leaders[b].totalDistance) {
           return -1;
         }
         return 0;
-      }));
+      });
       return rankedLeaders;
     },
     convertTime(timeInSeconds) {
-      return new Date(timeInSeconds * 1000).toISOString().substring(11, 19);
+      const hours = Math.floor(timeInSeconds / 3600);
+      const secsLeft = timeInSeconds % 3600;
+      const minutes = Math.floor(secsLeft / 60);
+      const seconds = secsLeft % 60;
+      return `${hours}:${minutes}:${seconds}`;
     },
     convertDistance(distanceInMeters) {
       return parseFloat(distanceInMeters / 1609).toFixed(2);
