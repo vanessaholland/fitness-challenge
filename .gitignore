@@ -1,6 +1,7 @@
 .DS_Store
+*/.DS_Store
 node_modules
-/dist
+*/dist
 
 # no need for this
 ../server/env/
@@ -9,6 +10,10 @@ node_modules
 .env.local
 .env.*.local
 .env
+
+# cypress examples
+cypress/e2e/1-getting-started
+cypress/e2e/2-advanced-examples
 
 # Log files
 npm-debug.log*
