@@ -21,4 +21,6 @@ jobs:
           cd client
           npm ci
       - name: Run tests and collect coverage
-        run: npm run cypress
+        run: |
+          cd client
+          npm run cypress
