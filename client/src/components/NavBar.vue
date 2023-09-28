@@ -1,15 +1,24 @@
 <template>
-  <b-container>
-    <b-navbar toggleable="lg" type="dark" variant="dark" data-cy="navbar">
-      <b-navbar-brand href="#">RamJack Fitness Challenge</b-navbar-brand>
-      <b-navbar-nav>
-        <router-link to="/leaderboard">Leaderboard</router-link>
-        <router-link to="/activities">Activity Feed</router-link>
-        <router-link to="/" right>About</router-link>
-      </b-navbar-nav>
-    </b-navbar>
-  </b-container>
+  <nav class="navbar navbar-dark bg-dark" data-cy="navbar">
+    <a class="navbar-brand" href="/">
+      <img src="@/assets/RJ-logo.png" class="d-inline-block align-top" alt="RamJack Logo">
+    </a>
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item" data-cy="leaderboard-link">
+          <router-link to="/leaderboard" class="nav-link">Leaderboard</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/activities" class="nav-link">Activity Feed</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/" class="nav-link">Home</router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
+
 <script>
 export default {
   name: 'NavBar',
