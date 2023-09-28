@@ -23,7 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('seedAndVisit', () => {
+Cypress.Commands.add('seedLeaders', () => {
     cy.intercept('GET', '**/activities?per_page=50', { fixture: 'club-activities.json' })
-    cy.visit('http://localhost:8080/leaderboard')
 })
