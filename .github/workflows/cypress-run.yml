@@ -7,15 +7,14 @@ on:
     branches: [ "main" ]
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
+  cypress-ryn:
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
+
+      - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: client/e2e/leaderboard
+          working-directory: client/
           build: npx cypress info
