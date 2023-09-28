@@ -1,4 +1,6 @@
-# fitness-challenge [![Action status][ci-badge]][ci-workflow]
+# fitness-challenge
+[![main](https://github.com/vanessaholland/fitness-challenge/actions/workflows/cypress-run.yml/badge.svg)](https://github.com/vanessaholland/fitness-challenge/actions/workflows/cypress-run.yml)
+
 
 Built for RamJack
 
