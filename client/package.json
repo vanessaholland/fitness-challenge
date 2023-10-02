@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=text-summary",
+    "coveralls": "nyc report --reporter=text-summary | coveralls",
     "cypress": "cypress open",
     "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve",

@@ -27,6 +27,12 @@ jobs:
           name: cypress-results
           path: client/cypress/results
 
+      - name: Report coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: client/coverage
+
       - name: Coveralls
         uses: coverallsapp/github-action@v2
 
