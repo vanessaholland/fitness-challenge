@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "cypress": "cypress open",
     "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve",
@@ -27,7 +28,7 @@
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-airbnb": "^6.0.0",
     "babel-plugin-istanbul": "^6.1.1",
-    "check-code-coverage": "^1.10.5",
+    "coveralls": "^3.1.1",
     "cypress": "^13.2.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",

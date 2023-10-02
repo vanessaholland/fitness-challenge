@@ -21,15 +21,14 @@ jobs:
           build: npx cypress info
           wait-on: 'http://localhost:8080'
 
-      - name: Set code coverage commit status 📫
-        run: node bin/set-gh-status
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: client/cypress/results
 
-      - name: Check coverage change from README 📫
-        run: node bin/set-gh-status --check-against-readme
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
 
-      - name: Update code coverage badge 🥇
-        run: node bin/update-badge
+
+
