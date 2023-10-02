@@ -1,5 +1,5 @@
 # fitness-challenge
-[![main](https://github.com/vanessaholland/fitness-challenge/actions/workflows/cypress-run.yml/badge.svg)](https://github.com/vanessaholland/fitness-challenge/actions/workflows/cypress-run.yml)
+[![main](https://github.com/vanessaholland/fitness-challenge/actions/workflows/cypress-run.yml/badge.svg)](https://github.com/vanessaholland/fitness-challenge/actions/workflows/cypress-run.yml) [![Coverage Status](https://coveralls.io/repos/github/vanessaholland/fitness-challenge/badge.svg?branch=main)](https://coveralls.io/github/vanessaholland/fitness-challenge?branch=main)
 
 
 Built for RamJack

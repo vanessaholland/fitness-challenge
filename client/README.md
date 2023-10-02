@@ -20,5 +20,11 @@ npm run build
 npm run lint
 ```
 
+### Cypress e2e test
+make sure localhost is up and running
+```
+npm run cypress
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
