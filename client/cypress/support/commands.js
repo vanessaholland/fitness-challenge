@@ -26,3 +26,7 @@
 Cypress.Commands.add('seedLeaders', () => {
     cy.intercept('GET', '**/activities?per_page=50', { fixture: 'club-activities.json' })
 })
+
+Cypress.Commands.add('seedActivities', () => {
+    cy.intercept('GET', '**/activities?before=*', { fixture: 'athlete-activities.json' })
+})
