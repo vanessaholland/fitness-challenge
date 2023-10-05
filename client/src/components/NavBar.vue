@@ -8,7 +8,7 @@
         <li class="nav-item" data-cy="leaderboard-link">
           <router-link to="/leaderboard" class="nav-link">Leaderboard</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-cy="activity-feed-link">
           <router-link to="/activities" class="nav-link">Activity Feed</router-link>
         </li>
         <li class="nav-item">
